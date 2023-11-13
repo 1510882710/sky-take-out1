@@ -87,6 +87,8 @@ public class EmployeeController {
     @ApiOperation("添加员工save")
     public Result save(@RequestBody EmployeeDTO employeeDTO){
         log.info("新添加员工：{}",employeeDTO);
+        System.out.println("Controller 当前线程id: " + Thread.currentThread().getId());
+
         employeeService.save(employeeDTO);
         return Result.success();
     }
