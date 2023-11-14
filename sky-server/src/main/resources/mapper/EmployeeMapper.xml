@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.EmployeeMapper">
 
+    <!-- 分页查询员工 -->
     <select id="pageQuery" resultType="com.sky.entity.Employee">
         select * from employee
         <where>
@@ -13,6 +14,8 @@
         order by create_time desc
     </select>
 
+
+    <!-- 修改员工启用禁用状态 -->
     <update id="update" parameterType="Employee">
         update employee
         <set>

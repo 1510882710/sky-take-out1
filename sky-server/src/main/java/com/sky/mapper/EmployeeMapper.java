@@ -28,5 +28,17 @@ public interface EmployeeMapper {
             "(#{name},#{username},#{password},#{phone},#{sex},#{idNumber},#{createTime},#{updateTime},#{createUser},#{updateUser},#{status})")
     void insert(Employee employee);
 
+    /***
+     * @函数功能：员工分页查询
+     * @param: employeePageQueryDTO
+     * @return：com.github.pagehelper.Page<com.sky.entity.Employee>
+     */
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    /***
+     * @函数功能：员工禁用启用
+     * @param: employee
+     * @return：void
+     */
+    void update(Employee employee);
 }

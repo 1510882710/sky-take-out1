@@ -92,12 +92,31 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /****
+     * @函数功能：分页查询员工page
+     * @param: employeePageQueryDTO
+     * @return：com.sky.result.Result<com.sky.result.PageResult>
+     */
     @GetMapping("/page")
     @ApiOperation("分页查询员工page")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
         log.info("分页查询员工page：{}",employeePageQueryDTO);
        PageResult page = employeeService.pagequery(employeePageQueryDTO);
         return Result.success(page);
+    }
+
+    /***
+     * @函数功能：启用禁用员工账号
+     * @param: status
+     * @param: id
+     * @return：com.sky.result.Result
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用禁用员工账号")
+    public Result startOrStop(@PathVariable Integer status ,long id){
+        log.info("启用禁用员工账号：status {}   id {}",status,id);
+        employeeService.startOrStop(status,id);
+        return Result.success();
     }
 
 
