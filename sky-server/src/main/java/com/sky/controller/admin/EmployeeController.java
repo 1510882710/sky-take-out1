@@ -119,5 +119,31 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /***
+     * @函数功能：根据员工id查询   修改员工第一步
+     * @param: employeeDTO
+     * @return：com.sky.result.Result<com.sky.entity.Employee>
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根据员工id查询")
+    public Result<Employee> getById(@PathVariable Long id){
+        log.info("根据员工id查询:  id {}",id);
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
+    }
+
+    /***
+     * @函数功能：编辑员工信息 修改员工第二步
+     * @param: employeeDTO
+     * @return：com.sky.result.Result
+     */
+    @PutMapping
+    @ApiOperation("根据员工id修改")
+    public Result update(@RequestBody EmployeeDTO employeeDTO){
+        log.info("根据员工id修改:  employeeDTO {}",employeeDTO);
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
+
 
 }

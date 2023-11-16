@@ -36,4 +36,18 @@ public interface EmployeeService {
      * @return：void
      */
     void startOrStop(Integer status, long id);
+
+    /***
+     * @函数功能：根据员工id查询   修改员工第一步
+     * @param: employeeDTO
+     * @return：com.sky.result.Result<com.sky.entity.Employee>
+     */
+    Employee getById(Long id);
+
+    /***
+     * @函数功能：编辑员工信息 修改员工第二步
+     * @param: employeeDTO
+     * @return：com.sky.result.Result
+     */
+    void update(EmployeeDTO employeeDTO);
 }

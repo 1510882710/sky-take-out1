@@ -41,4 +41,12 @@ public interface EmployeeMapper {
      * @return：void
      */
     void update(Employee employee);
+
+    /***
+     * @函数功能：根据员工id查询   修改员工第一步
+     * @param: id
+     * @return：com.sky.entity.Employee
+     */
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
 }
